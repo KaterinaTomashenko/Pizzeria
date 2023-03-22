@@ -1,15 +1,6 @@
 import { useState } from "react";
 
-function PizzaBlock({
-	id,
-	imageUrl,
-	title,
-	types,
-	sizes,
-	price,
-	category,
-	rating,
-}) {
+function PizzaBlock({ imageUrl, title, types, sizes, price }) {
 	const [pizzaCount, setPizzaCount] = useState(0);
 
 	const onClickAdd = () => {
@@ -28,6 +19,7 @@ function PizzaBlock({
 				<ul>
 					{types.map((typeIndex, i) => (
 						<li
+							key={i}
 							onClick={() => setActiveType(i)}
 							className={activeType === i ? "active" : ""}
 						>
@@ -38,6 +30,7 @@ function PizzaBlock({
 				<ul>
 					{sizes.map((size, i) => (
 						<li
+							key={size}
 							onClick={() => setActiveSize(i)}
 							className={activeSize === i ? "active" : ""}
 						>
